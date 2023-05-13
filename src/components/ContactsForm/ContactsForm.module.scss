@@ -1,0 +1,52 @@
+.form {
+    display: block;
+
+    & label {
+        margin-left: 20px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        color:orange;
+    }
+}
+
+.input {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 250px;
+    height: 30px;
+    font-size: 30px;
+    border: 1px solid orange;
+    border-radius: 10px;
+    background-color: white;
+    outline-color: green;
+}
+
+.button {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 0.15em;
+    color: orange;
+    border: 2px solid orange;
+    border-radius: 10px;
+    background-color: transparent;
+
+    &:hover {
+        color: rgb(52,51,51);
+        background-color: orange;
+        transform: scale(1.07);
+    }
+    &:focus {
+        color: white;
+        background-color: orange;
+        transform: scale(1.07);
+    }
+
+}
