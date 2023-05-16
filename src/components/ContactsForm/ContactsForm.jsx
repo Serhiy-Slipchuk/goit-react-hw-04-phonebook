@@ -7,12 +7,13 @@ const ContactsForm = function ({ addContact, existNames }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
-  const handlerNameInputChange = event => {
-    setName(event.target.value);
-  };
-
-  const handlerNumberInputChange = event => {
-    setNumber(event.target.value);
+  const handlerInputChange = event => {
+    if (event.target.name === 'name') {
+      setName(event.target.value);
+    }
+    if (event.target.name === 'number') {
+      setNumber(event.target.value);
+    }
   };
 
   const handlerSubmitForm = event => {
@@ -40,7 +41,7 @@ const ContactsForm = function ({ addContact, existNames }) {
           type="text"
           name="name"
           value={name}
-          onChange={handlerNameInputChange}
+          onChange={handlerInputChange}
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
@@ -53,7 +54,7 @@ const ContactsForm = function ({ addContact, existNames }) {
           type="tel"
           name="number"
           value={number}
-          onChange={handlerNumberInputChange}
+          onChange={handlerInputChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
