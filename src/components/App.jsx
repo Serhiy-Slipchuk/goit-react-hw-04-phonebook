@@ -15,7 +15,6 @@ const App = function () {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    console.log('mount')
     const localContacts = JSON.parse(window.localStorage.getItem('contacts'));
     if (localContacts) {
       setContacts(localContacts);
@@ -23,11 +22,7 @@ const App = function () {
   }, []);
 
   useEffect(() => {
-    console.log('update');
-    console.log(contacts);
     window.localStorage.setItem('contacts', JSON.stringify(contacts));
-    
-    console.log('set item to localstorage');
   }, [contacts]);
 
   const addContact = newContact => {
@@ -71,10 +66,7 @@ const App = function () {
 
         <h2 className={css.heading}>Contacts</h2>
 
-        <Filter
-          filter={filter}
-          onChangeFilter={handlerFilterInputChange}
-        />
+        <Filter filter={filter} onChangeFilter={handlerFilterInputChange} />
 
         <ContactsList
           contactsFiltered={getFilteredContacts}
